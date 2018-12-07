@@ -1,20 +1,6 @@
-What problem are you trying to solve?
-- Idk, people sometimes like to categorize what they listen to, and I'd like to make a listening history search engine where you can search by genre
-Who is the audience?
-- people with Spotify accounts?
-- people who like categorizing their music
+GENRE-ME 
 
-How will the project requirements be fufilled?
-- 4 routes: base route, genre details, song details, search results
-- GET listening history, POST what you think your favorite genre is PUT/PATCH what that genre is, DELETE that genre  
-- Search loading animation
-- form validation: test the search fields 
-
-Which addon(s) do you think you will use and for what?
-- Spotify API
-- ember-burger-menu 
-
-#sorry Finn#
+get some sweet sweet gradients for your music tastes.
 
 - Ember Addons:
  - Mirage
@@ -23,7 +9,7 @@ Which addon(s) do you think you will use and for what?
  - liquid-fire
 
 
-
+[![Build Status](https://travis-ci.com/AsiaClarkson/itp404-final-project.svg?branch=master)](https://travis-ci.com/AsiaClarkson/itp404-final-project)
 
 
 
