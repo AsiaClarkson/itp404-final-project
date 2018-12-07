@@ -1,0 +1,41 @@
+<style>
+  label {
+    font-size: 3vw;
+
+  }
+
+  #container {
+    margin: 0 auto;
+    width: 70%;
+    text-align: left;
+  }
+
+  #saveButton {
+    background-color: aqua;
+  }
+
+  input {
+    border: none;
+    overflow: auto;
+    outline: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: 4vw;
+    font-size: 3vw;
+    margin-bottom: 10px;
+    color: white;
+  }
+</style>
+<form onsubmit={{action "editUser" model}}>
+  <div id="container">
+    <label for="name">What's your name?</label><br> {{input id="name" data-edit="name1" value=name}}
+    <label for="location">Where are you from?</label><br> {{input  value=location}}<br>
+    <label for="subject">What"s you"re favorite genre?</label><br> {{input id="genre1"value=genre1}}<br>
+    <label for="subject">What other genre(s) do you like?</label><br> {{input id="genre2"value=genre2}}<br> {{input value=genre3}}<br>    {{!--
+    <button id="save" type="submit" data-test="saveUser">Update</button> --}}
+    <SaveButton data-test="update" id="saveButton" @defaultText="Update" @pendingText="Updating..." @onClick={{action "editUser"}} />
+  </div>
+</form>
+{{outlet}}

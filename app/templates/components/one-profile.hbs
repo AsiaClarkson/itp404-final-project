@@ -1,0 +1,16 @@
+<div class="one-profile" style={{genre-gradient (color-getter @user.genre1) (color-getter1 @user.genre2) (color-getter2 @user.genre3)}}>
+    <div class="name">
+        {{#link-to "profile" @user.id}}
+        <strong>{{@user.name}}</strong> 
+        {{/link-to}} <br>
+        <span class="location">{{@user.location}}</span>
+    </div>
+     <h2 class="genre1" data-test="genre1">{{@user.genre1}}</h2>
+    <div class="genre-block">
+    <h5 class="genre" data-test="genre2">{{@user.genre2}}</h5>
+    <h5 class="genre" data-test="genre3">{{@user.genre3}}</h5>
+    
+    
+    
+    </div>
+</div>

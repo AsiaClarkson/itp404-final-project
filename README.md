@@ -16,6 +16,12 @@ Which addon(s) do you think you will use and for what?
 
 #sorry Finn#
 
+- Ember Addons:
+ - Mirage
+ - ember-burger-menu
+ - ember-collapsible-panel
+ - liquid-fire
+
 
 
 

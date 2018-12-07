@@ -1,0 +1,49 @@
+<style>
+  label{
+    font-size: 3vw;
+    
+  }
+  #container{
+    margin:0 auto;
+    width: 70%;
+    text-align: left;
+  }
+  #saveButton{
+    background-color:aqua;
+  }
+  input {
+  border: none;
+  overflow: auto;
+  outline: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+      height:4vw;
+    font-size:3vw;
+    margin-bottom: 10px;
+    color:white;
+}
+</style>
+<form onsubmit={{action "createUser"}}>
+  <div id="container">
+    <label for="name">What's your name?</label><br>
+    {{input type="text" id="name" pattern="[A-Za-z-']+\s[A-Za-z-']+" title="Please input your first and last name with a space in between ex. 'Han Solo'"value=name}}<br>
+    <label for="location">Where are you from?</label><br>
+    {{input type="text" id="location" value=location}}<br>
+    <label for="subject">What's you"re favorite genre?</label><br>
+    {{input  type="text" id="genre1" value=genre1}}<br>
+        <label for="subject">What other genre(s) do you like?</label><br>
+    {{input  type="text" id="genre2" value=genre2}}<br>
+    {{input type="text" id="genre3" value=genre3}}<br>
+    
+    {{!-- <button id="save" type="submit">Save</button><br> --}}
+<SaveButton id="saveButton"
+@defaultText ="Save" 
+@pendingText="Saving..." 
+@onClick={{action "createUser"}}
+data-test="create"
+/>
+  </div>
+</form>
+{{outlet}}

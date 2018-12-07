@@ -1,0 +1,186 @@
+<style>
+  #name {
+    font-size: 7vw;
+    display: inline;
+    max width: 900px;
+    margin-left: 40px;
+    margin-top: -20px;
+    margin-bottom: 0px;
+    color: white;
+    text-align: left;
+    background-image: linear-gradient(24deg, rgba(253, 29, 29, 1) 0%, rgba(204, 43, 94, 1) 50%, rgba(253, 29, 29, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #panels {
+    display: flex;
+    padding-left: 40px;
+
+  }
+
+  #panels a {
+    text-decoration: none;
+    color: white;
+    text-align: left;
+  }
+
+  .cp-Panel {
+    background-color: transparent;
+    width: 1000px;
+  }
+
+  .cp-Panel .genre1 {
+    font-size: 5vw;
+    margin: 0px 0px 0px 0px;
+    color: rgba(255, 255, 255, .2);
+    font-weight: bold;
+
+  }
+
+  .cp-Panel-toggle {
+    display: block;
+    padding: 1em;
+  }
+
+  .cp-Panel-toggle:link {
+    text-decoration: none;
+  }
+
+  .cp-Panel-toggle:hover {
+    background-color: rgba(255, 255, 255, .3);
+  }
+
+  .cp-Panel-body-inner {
+    padding: 1em;
+    color: white;
+  }
+
+  #actions {}
+
+  button {
+    background-color: transparent;
+    border-color: transparent;
+    margin: 10px;
+
+  }
+
+  button:focus {
+    outline: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  button img {
+    width: 40px;
+  }
+
+  #top {
+    display: inline;
+  }
+
+  section {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    margin: 3px 1px 3px 1px;
+    display: inline-block;
+    position: relative;
+    font-size: .8vw;
+    overflow-wrap: break-word;
+    color: black;
+    vertical-align: top;
+  }
+
+  #gradsection {
+    width: 163px;
+    height: 20px;
+    background-color: blue;
+  }
+
+  #colors {
+    top: 360px;
+    right: 25px;
+    width: 250px;
+    float: right;
+    position: absolute;
+  }
+
+  #colors h4 {
+    margin-bottom: 5px;
+  }
+
+  .genres {
+    text-align: left;
+    font-size: 4vw;
+    margin: 0px;
+  }
+    </style>
+    <div id=top>
+      <h1 id="name" data-test="name" data-edit="name1" data-view="name" style={{genre-gradient (color-getter model.genre1) (color-getter1 model.genre2) (color-getter2 model.genre3)}}>{{model.name}}</h1>
+      <div id="actions">
+        {{#link-to "index"}}
+        <button><img src="/icons/left-arrow.png"></button>
+        {{/link-to}}
+        {{#link-to "edit" model.id}}
+        <button data-test="edit-user"><img src="/icons/edit.png"></button>
+        {{/link-to}}
+        <button onclick={{action "deleteUser" model}} data-test="delete-user"><img src="/icons/garbage.png"></button>
+      </div>
+    </div>
+    <div id="colors">
+      <h4>Your unique genre colors:</h4>
+      <section style="background-color:{{color-getter model.genre1}}">{{model.genre1}}</section>
+      <section style="background-color:{{color-getter model.genre2}}">{{model.genre2}}</section>
+      <section style="background-color:{{color-getter model.genre3}}">{{model.genre3}}</section>
+      <section id="gradsection" style={{genre-gradient (color-getter model.genre1) (color-getter1 model.genre2) (color-getter2 model.genre3)}}></section><br>
+    </div>
+    <div id="panels">
+      {{#cp-panels accordion=true as |panels|}}
+      {{#panels.panel as |panel|}}
+      {{#panel.toggle}}
+      <p class="genres" data-test="genre-1" data-edit="genre1" data-view="genre1" >{{model.genre1}}</p>
+      {{/panel.toggle}}
+      {{#panel.body}}
+      <div id="genres1">
+        <GenreDescriptor @user={{model}}>
+          Click To Reveal Info
+        </GenreDescriptor>
+
+      </div>
+      {{/panel.body}}
+      {{/panels.panel}}
+
+      {{#panels.panel as |panel|}}
+      {{#panel.toggle}}
+      <p class="genres" data-test="genre-2" data-edit="genre2" data-view="genre2">{{model.genre2}}</p>
+      {{/panel.toggle}}
+      {{#panel.body}}
+      <div id="genres2">
+        <GenreDescriptor1 @user={{model}}>
+          Click To Reveal Info
+        </GenreDescriptor1>
+      </div>
+      {{/panel.body}}
+      {{/panels.panel}}
+      {{#if model.genre3}}
+      {{#panels.panel as |panel|}}
+      {{#panel.toggle}}
+      <p class="genres" data-view="genre3">{{model.genre3}}</p>
+      {{/panel.toggle}}
+      {{#panel.body}}
+      <div id="genres3">
+        <GenreDescriptor2 @user={{model}}>
+          Click To Reveal Info
+        </GenreDescriptor2>
+      </div>
+      {{/panel.body}}
+      {{/panels.panel}}
+      {{else}}
+      {{/if}}
+      {{/cp-panels}}
+    </div>
+    {{outlet}}

@@ -1,0 +1,16 @@
+<style>
+      #profile-space {
+    width: 80%;
+    margin:0 auto;
+  }
+</style>
+
+<div id="profile-space">
+    {{#each model as |user|}}
+<OneProfile @user={{user}} data-test="user"></OneProfile>
+<br>
+{{/each}}
+</div>
+
+
+{{outlet}}

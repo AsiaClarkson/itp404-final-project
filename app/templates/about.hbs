@@ -1,0 +1,79 @@
+<style>
+  #panels a {
+    text-decoration: none;
+    color: white;
+    text-align: left;
+  }
+
+  .cp-Panel {
+    background-color: transparent;
+    width: 1000px;
+    font-size: 4vw;
+    padding: 0px 0px 0px 0px;
+    margin-left: 200px;
+  }
+
+  .cp-Panel .genre1 {
+    font-size: 5vw;
+
+    color: rgba(255, 255, 255, .2);
+    font-weight: bold;
+
+  }
+
+  .cp-Panel-toggle {
+    display: block;
+    padding: .5em;
+    transition: 1s;
+  }
+
+  .cp-Panel-toggle:link {
+    text-decoration: none;
+  }
+
+  .cp-Panel-toggle:hover {
+      {
+        {
+         !-- background-color: rgba(255, 255, 255, .1);
+        --
+      }
+    }
+    font-weight: bold;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+
+  }
+
+  .cp-Panel-body-inner {
+    padding: 1em;
+    color: white;
+    font-size: 1.5vw;
+    text-align: left;
+  }
+
+  .titles {
+    margin: 0px 0px 0px 0px;
+  }
+</style>
+
+<div id="panels">
+  {{#cp-panels accordion=true as |panels|}} {{#panels.panel as |panel|}} {{#panel.toggle}}
+  <p class="titles">About This Project</p>
+  {{/panel.toggle}} {{#panel.body}}
+  <div>
+    <p>INFO 1</p>
+    <iframe src="https://open.spotify.com/embed/user/126667845/playlist/6ndBTpHIj9IzYDWre7xsCT" width="250" height="80" frameborder="0"
+      allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+  {{/panel.body}} {{/panels.panel}} {{#panels.panel as |panel|}} {{#panel.toggle}}
+  <p class="titles">About Me</p>
+  {{/panel.toggle}} {{#panel.body}}
+  <div>
+    <p>My name is Asia Clarkson and I"m in the Iovine and Young Academy and the University of Southern California. I care
+      deeply about music and like to attempt to visualize and represent it in various ways, usually through words or through
+      code. Below is a playlist full of my favorite songs. Please give it a listen. Thanks for stopping by! </p>
+    <iframe src="https://open.spotify.com/embed/user/126667845/playlist/2e2bnyfIW2HCOfORfXJz4F" width="900" height="80" frameborder="0"
+      allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+  {{/panel.body}} {{/panels.panel}} {{/cp-panels}}
+</div>
